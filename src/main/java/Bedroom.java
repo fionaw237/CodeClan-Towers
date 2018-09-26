@@ -37,8 +37,11 @@ public class Bedroom {
     }
 
     public void checkIn(Guest guest) {
-        this.guests.add(guest);
-        guest.setRoomNumber(this.roomNumber);
+        if (!isFull()) {
+            this.guests.add(guest);
+            guest.setRoomNumber(this.roomNumber);
+        }
+
     }
 
     public void checkOut(Guest guest) {

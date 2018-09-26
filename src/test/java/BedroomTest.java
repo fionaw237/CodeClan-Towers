@@ -71,4 +71,12 @@ public class BedroomTest {
         bedroom.checkIn(guest1);
         assertEquals(true, bedroom.isFull());
     }
+
+    @Test
+    public void cannotAddGuestIfRoomFull() {
+        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1);
+        assertEquals(2, bedroom.getCapacity());
+    }
 }
