@@ -32,6 +32,10 @@ public class Bedroom {
         return nightlyRate;
     }
 
+    public ArrayList<Guest> getGuests() {
+        return new ArrayList<>(guests);
+    }
+
     public int guestCount() {
         return this.guests.size();
     }

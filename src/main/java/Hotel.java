@@ -69,4 +69,11 @@ public class Hotel {
     public void checkOutOfDiningRoom(Guest guest) {
         this.diningRoom.checkOut(guest);
     }
+
+    public ArrayList<Guest> showGuestsByBedroom(Bedroom bedroom) {
+        if (bedroom.guestCount() > 0) {
+            return bedroom.getGuests();
+        }
+        return null;
+    }
 }
