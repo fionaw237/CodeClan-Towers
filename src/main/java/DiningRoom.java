@@ -25,4 +25,8 @@ public class DiningRoom {
     public void checkOut(Guest guest) {
         this.guests.remove(guest);
     }
+
+    public ArrayList<Guest> getGuests() {
+        return new ArrayList<Guest>(guests);
+    }
 }

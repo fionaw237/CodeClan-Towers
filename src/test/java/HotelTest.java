@@ -110,7 +110,7 @@ public class HotelTest {
     }
 
     @Test
-    public void canGetGuestListOfRoom() {
+    public void canGetGuestListOfBedroom() {
         String roomType = "single";
         hotel.checkIntoBedroom(guest1, roomType);
         ArrayList<Guest> guests = new ArrayList<>();
@@ -118,4 +118,23 @@ public class HotelTest {
         assertEquals(guests, hotel.showGuestsByBedroom(bedroom2));
     }
 
+    @Test
+    public void canGetGuestListOfDiningRoom() {
+        hotel.checkIntoDiningRoom(guest1);
+        hotel.checkIntoDiningRoom(guest2);
+        ArrayList<Guest> guests = new ArrayList<>();
+        guests.add(guest1);
+        guests.add(guest2);
+        assertEquals(guests, hotel.showGuestsInDiningRoom());
+    }
+
+    @Test
+    public void canGetGuestListOfConferenceRoom() {
+        hotel.checkIntoConferenceRoom(guest1);
+        hotel.checkIntoConferenceRoom(guest2);
+        ArrayList<Guest> guests = new ArrayList<>();
+        guests.add(guest1);
+        guests.add(guest2);
+        assertEquals(guests, hotel.showGuestsInConfefenceRoom());
+    }
 }

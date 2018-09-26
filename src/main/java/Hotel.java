@@ -76,4 +76,18 @@ public class Hotel {
         }
         return null;
     }
+
+    public ArrayList<Guest> showGuestsInDiningRoom() {
+        if (this.diningRoom.guestCount() > 0) {
+            return diningRoom.getGuests();
+        }
+        return null;
+    }
+
+    public ArrayList<Guest> showGuestsInConfefenceRoom() {
+        if (this.conferenceRoom.guestCount() > 0) {
+            return conferenceRoom.getGuests();
+        }
+        return null;
+    }
 }
