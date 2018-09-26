@@ -60,15 +60,15 @@ public class HotelTest {
 
     @Test
     public void canCheckGuestIntoConferenceRoom() {
-        hotel.checkIntoConferenceRoom(guest1, conferenceRoom1);
-        hotel.checkIntoConferenceRoom(guest2, conferenceRoom1);
-        assertEquals(2, conferenceRoom1.guestCount());
+        hotel.checkIntoConferenceRoom(guest1);
+        hotel.checkIntoConferenceRoom(guest2);
+        assertEquals(2, hotel.getConferenceRoom().guestCount());
     }
 
     @Test
     public void canCheckGuestIntoDiningRoom() {
-        hotel.checkIntoDiningRoom(guest1, diningRoom1);
-        hotel.checkIntoDiningRoom(guest2, diningRoom1);
-        assertEquals(2, diningRoom1.guestCount());
+        hotel.checkIntoDiningRoom(guest1);
+        hotel.checkIntoDiningRoom(guest2);
+        assertEquals(2, hotel.getDiningRoom().guestCount());
     }
 }

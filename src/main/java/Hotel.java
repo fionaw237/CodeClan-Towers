@@ -34,11 +34,11 @@ public class Hotel {
         bedroom.checkIn(guest);
     }
 
-    public void checkIntoConferenceRoom(Guest guest, ConferenceRoom conferenceRoom) {
-        conferenceRoom.checkIn(guest);
+    public void checkIntoConferenceRoom(Guest guest) {
+        this.conferenceRoom.checkIn(guest);
     }
 
-    public void checkIntoDiningRoom(Guest guest, DiningRoom diningRoom) {
-        diningRoom.checkIn(guest);
+    public void checkIntoDiningRoom(Guest guest) {
+        this.diningRoom.checkIn(guest);
     }
 }
