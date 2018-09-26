@@ -45,4 +45,8 @@ public class Bedroom {
         this.guests.remove(guest);
         guest.setRoomNumber(null);
     }
+
+    public boolean isFull() {
+        return this.capacity == guestCount();
+    }
 }
