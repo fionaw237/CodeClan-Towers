@@ -30,8 +30,12 @@ public class Hotel {
         return this.bedrooms.size();
     }
 
-    public void checkIntoBedroom(Guest guest, Bedroom bedroom) {
-        bedroom.checkIn(guest);
+    public void checkIntoBedroom(Guest guest, String roomType) {
+        for (Bedroom bedroom: this.bedrooms) {
+            if (bedroom.getType() == roomType) {
+                bedroom.checkIn(guest);
+            }
+        }
     }
 
     public void checkIntoConferenceRoom(Guest guest) {
@@ -40,5 +44,29 @@ public class Hotel {
 
     public void checkIntoDiningRoom(Guest guest) {
         this.diningRoom.checkIn(guest);
+    }
+
+    public void checkOutOfBedroom(Guest guest) {
+        Bedroom bedroom = findBedroomByNumber(guest.getRoomNumber());
+        bedroom.checkOut(guest);
+    }
+
+
+
+    public Bedroom findBedroomByNumber(String roomNumber) {
+        for (Bedroom bedroom: this.bedrooms) {
+            if (bedroom.getRoomNumber() == roomNumber) {
+                return bedroom;
+            }
+        }
+        return null;
+    }
+
+    public void checkOutOfConferenceRoom(Guest guest) {
+        this.conferenceRoom.checkOut(guest);
+    }
+
+    public void checkOutOfDiningRoom(Guest guest) {
+        this.diningRoom.checkOut(guest);
     }
 }

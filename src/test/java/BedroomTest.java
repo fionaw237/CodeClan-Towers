@@ -46,6 +46,19 @@ public class BedroomTest {
     }
 
     @Test
+    public void canCheckInGuestShowsRoomNumber() {
+        bedroom.checkIn(guest1);
+        assertEquals("101", guest1.getRoomNumber());
+    }
+
+    @Test
+    public void canCheckInGuestRemovesRoomNumber() {
+        bedroom.checkIn(guest1);
+        bedroom.checkOut(guest1);
+        assertEquals(null, guest1.getRoomNumber());
+    }
+
+    @Test
     public void canCheckOutGuest() {
         bedroom.checkIn(guest1);
         bedroom.checkOut(guest1);

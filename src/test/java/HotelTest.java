@@ -53,9 +53,11 @@ public class HotelTest {
     }
 
     @Test
-    public void canCheckGuestIntoBedroom() {
-        hotel.checkIntoBedroom(guest1, bedroom1);
-        assertEquals(1, bedroom1.guestCount());
+    public void canCheckGuestIntoSingleBedroom() {
+        String roomType = "single";
+        hotel.checkIntoBedroom(guest1, roomType);
+        assertEquals(1, bedroom2.guestCount());
+        assertEquals(0, bedroom1.guestCount());
     }
 
     @Test
@@ -71,4 +73,40 @@ public class HotelTest {
         hotel.checkIntoDiningRoom(guest2);
         assertEquals(2, hotel.getDiningRoom().guestCount());
     }
+
+    @Test
+    public void canFindBedroomByNumber() {
+        String roomType = "single";
+        hotel.checkIntoBedroom(guest1, roomType);
+        Bedroom foundBedroom = hotel.findBedroomByNumber(guest1.getRoomNumber());
+        assertEquals(bedroom2, foundBedroom);
+    }
+
+    @Test
+    public void canCheckGuestOutOfSingleBedroom() {
+        String roomType = "single";
+        hotel.checkIntoBedroom(guest1, roomType);
+        assertEquals(1, bedroom2.guestCount());
+        assertEquals(0, bedroom1.guestCount());
+        hotel.checkOutOfBedroom(guest1);
+        assertEquals(0, bedroom2.guestCount());
+        assertEquals(null, guest1.getRoomNumber());
+    }
+
+    @Test
+    public void canCheckGuestOutOfConferenceRoom() {
+        hotel.checkIntoConferenceRoom(guest1);
+        hotel.checkIntoConferenceRoom(guest2);
+        hotel.checkOutOfConferenceRoom(guest1);
+        assertEquals(1, hotel.getConferenceRoom().guestCount());
+    }
+
+    @Test
+    public void canCheckGuestOutOfDiningRoom() {
+        hotel.checkIntoDiningRoom(guest1);
+        hotel.checkIntoDiningRoom(guest2);
+        hotel.checkOutOfDiningRoom(guest1);
+        assertEquals(1, hotel.getDiningRoom().guestCount());
+    }
+
 }

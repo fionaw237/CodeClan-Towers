@@ -17,4 +17,9 @@ public class GuestTest {
         assertEquals("John Mike", guest.getName());
     }
 
+    @Test
+    public void roomNumberIsNullInitially() {
+        assertEquals(null, guest.getRoomNumber());
+    }
+
 }
