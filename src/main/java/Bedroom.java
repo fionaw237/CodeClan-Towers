@@ -31,4 +31,8 @@ public class Bedroom {
     public double getNightlyRate() {
         return nightlyRate;
     }
+
+    public int guestCount() {
+        return this.guests.size();
+    }
 }

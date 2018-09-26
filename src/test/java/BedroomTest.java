@@ -31,4 +31,9 @@ public class BedroomTest {
     public void hasNightlyRate() {
         assertEquals(40.20, bedroom.getNightlyRate(), 0.01);
     }
+
+    @Test
+    public void startsEmpty() {
+        assertEquals(0, bedroom.guestCount());
+    }
 }

@@ -26,4 +26,9 @@ public class ConferenceRoomTest {
     public void hasDailyRate() {
         assertEquals(100, conferenceRoom.getDailyRate(), 0.01);
     }
+
+    @Test
+    public void startsEmpty() {
+        assertEquals(0, conferenceRoom.guestCount());
+    }
 }

@@ -11,6 +11,7 @@ public class ConferenceRoom {
         this.capacity = capacity;
         this.name = name;
         this.dailyRate = dailyRate;
+        this.guests = new ArrayList<>();
     }
 
     public int getCapacity() {
@@ -23,5 +24,9 @@ public class ConferenceRoom {
 
     public double getDailyRate() {
         return dailyRate;
+    }
+
+    public int guestCount() {
+        return this.guests.size();
     }
 }
