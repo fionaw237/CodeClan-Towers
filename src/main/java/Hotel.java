@@ -32,8 +32,9 @@ public class Hotel {
 
     public void checkIntoBedroom(Guest guest, String roomType) {
         for (Bedroom bedroom: this.bedrooms) {
-            if (bedroom.getType() == roomType) {
+            if (bedroom.getType() == roomType && !bedroom.isFull()) {
                 bedroom.checkIn(guest);
+                break;
             }
         }
     }
@@ -89,5 +90,15 @@ public class Hotel {
             return conferenceRoom.getGuests();
         }
         return null;
+    }
+
+    public ArrayList<Bedroom> getVacantRooms() {
+        ArrayList<Bedroom> vacantRooms = new ArrayList<>();
+        for (Bedroom bedroom: this.bedrooms) {
+            if (bedroom.guestCount() == 0) {
+                vacantRooms.add(bedroom);
+            }
+        }
+        return vacantRooms;
     }
 }

@@ -10,10 +10,12 @@ public class HotelTest {
     Hotel hotel;
     Bedroom bedroom1;
     Bedroom bedroom2;
+    Bedroom bedroom3;
     ConferenceRoom conferenceRoom1;
     DiningRoom diningRoom1;
     Guest guest1;
     Guest guest2;
+    ArrayList<Bedroom> bedrooms = new ArrayList<Bedroom>();
 
     @Before
     public void before() {
@@ -23,7 +25,6 @@ public class HotelTest {
         guest2 = new Guest("Laura Mike");
         bedroom1 = new Bedroom(2, "101", "double", 40.20);
         bedroom2 = new Bedroom(1, "102", "single", 22.00);
-        ArrayList<Bedroom> bedrooms = new ArrayList<Bedroom>();
         bedrooms.add(bedroom1);
         bedrooms.add(bedroom2);
         conferenceRoom1 = new ConferenceRoom(10, "Meeting Room 1", 100);
@@ -136,5 +137,44 @@ public class HotelTest {
         guests.add(guest1);
         guests.add(guest2);
         assertEquals(guests, hotel.showGuestsInConfefenceRoom());
+    }
+
+    @Test
+    public void canCheckInGuestsToMultipleSingleBedroom() {
+        Bedroom bedroom3 = new Bedroom(2, "B103", "single", 20);
+        bedrooms.add(bedroom3);
+
+        Guest guest3 = new Guest("Fiona Wilson");
+
+        String roomType = "single";
+        hotel.checkIntoBedroom(guest1, roomType);
+        hotel.checkIntoBedroom(guest2, roomType);
+        hotel.checkIntoBedroom(guest3, roomType);
+
+
+        assertEquals(1, bedroom2.guestCount());
+        assertEquals(2, bedroom3.guestCount());
+    }
+
+    @Test
+    public void canGetVacantBedrooms() {
+        Bedroom bedroom3 = new Bedroom(2, "B103", "single", 20);
+        bedrooms.add(bedroom3);
+
+        Guest guest3 = new Guest("Fiona Wilson");
+
+        String roomType = "single";
+        hotel.checkIntoBedroom(guest1, roomType);
+        hotel.checkIntoBedroom(guest2, roomType);
+        hotel.checkIntoBedroom(guest3, roomType);
+
+
+        assertEquals(1, bedroom2.guestCount());
+        assertEquals(2, bedroom3.guestCount());
+
+        ArrayList<Bedroom> vacantRooms = new ArrayList<Bedroom>();
+        vacantRooms.add(bedroom1);
+
+        assertEquals(vacantRooms, hotel.getVacantRooms());
     }
 }
