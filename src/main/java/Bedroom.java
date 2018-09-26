@@ -35,4 +35,12 @@ public class Bedroom {
     public int guestCount() {
         return this.guests.size();
     }
+
+    public void checkIn(Guest guest) {
+        this.guests.add(guest);
+    }
+
+    public void checkOut(Guest guest) {
+        this.guests.remove(guest);
+    }
 }
