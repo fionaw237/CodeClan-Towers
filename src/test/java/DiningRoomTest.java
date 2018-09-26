@@ -36,4 +36,22 @@ public class DiningRoomTest {
         diningRoom.checkOut(guest1);
         assertEquals(0, diningRoom.guestCount());
     }
+
+    @Test
+    public void isFull() {
+        DiningRoom smallRoom = new DiningRoom(2);
+        smallRoom.checkIn(guest1);
+        smallRoom.checkIn(guest1);
+        assertEquals(true, smallRoom.isFull());
+    }
+
+    @Test
+    public void cannotAddMoreGuestsIfRoomFull() {
+        DiningRoom smallRoom = new DiningRoom(2);
+        smallRoom.checkIn(guest1);
+        smallRoom.checkIn(guest1);
+        smallRoom.checkIn(guest1);
+        assertEquals(2, smallRoom.guestCount());
+    }
 }
+

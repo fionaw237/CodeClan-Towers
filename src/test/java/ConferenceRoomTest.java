@@ -47,4 +47,20 @@ public class ConferenceRoomTest {
         assertEquals(0, conferenceRoom.guestCount());
     }
 
+    @Test
+    public void isFull() {
+        ConferenceRoom conferenceRoom2 = new ConferenceRoom(2, "Meeting Room 2", 100);
+        conferenceRoom2.checkIn(guest1);
+        conferenceRoom2.checkIn(guest1);
+        assertEquals(true, conferenceRoom2.isFull());
+    }
+
+    @Test
+    public void cannotAddMoreGuestsIfRoomFull() {
+        ConferenceRoom conferenceRoom2 = new ConferenceRoom(2, "Meeting Room 2", 100);
+        conferenceRoom2.checkIn(guest1);
+        conferenceRoom2.checkIn(guest1);
+        conferenceRoom2.checkIn(guest1);
+        assertEquals(2, conferenceRoom2.guestCount());
+    }
 }

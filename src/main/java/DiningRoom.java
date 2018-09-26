@@ -19,7 +19,9 @@ public class DiningRoom {
     }
 
     public void checkIn(Guest guest) {
-        this.guests.add(guest);
+        if (!isFull()){
+            this.guests.add(guest);
+        }
     }
 
     public void checkOut(Guest guest) {
@@ -29,4 +31,9 @@ public class DiningRoom {
     public ArrayList<Guest> getGuests() {
         return new ArrayList<Guest>(guests);
     }
+
+    public boolean isFull() {
+        return this.capacity == guestCount();
+    }
+
 }

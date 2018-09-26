@@ -136,7 +136,7 @@ public class HotelTest {
         ArrayList<Guest> guests = new ArrayList<>();
         guests.add(guest1);
         guests.add(guest2);
-        assertEquals(guests, hotel.showGuestsInConfefenceRoom());
+        assertEquals(guests, hotel.showGuestsInConferenceRoom());
     }
 
     @Test

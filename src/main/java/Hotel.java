@@ -85,7 +85,7 @@ public class Hotel {
         return null;
     }
 
-    public ArrayList<Guest> showGuestsInConfefenceRoom() {
+    public ArrayList<Guest> showGuestsInConferenceRoom() {
         if (this.conferenceRoom.guestCount() > 0) {
             return conferenceRoom.getGuests();
         }
