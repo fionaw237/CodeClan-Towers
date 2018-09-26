@@ -30,10 +30,10 @@ public class Hotel {
         return this.bedrooms.size();
     }
 
-    public void checkIntoBedroom(Guest guest, String roomType) {
+    public void checkIntoBedroom(Guest guest, String roomType, int NumberOfNights) {
         for (Bedroom bedroom: this.bedrooms) {
             if (bedroom.getType() == roomType && !bedroom.isFull()) {
-                bedroom.checkIn(guest);
+                bedroom.checkIn(guest, NumberOfNights);
                 break;
             }
         }
@@ -101,4 +101,6 @@ public class Hotel {
         }
         return vacantRooms;
     }
+
+
 }

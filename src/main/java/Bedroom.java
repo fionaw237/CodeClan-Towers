@@ -40,10 +40,11 @@ public class Bedroom {
         return this.guests.size();
     }
 
-    public void checkIn(Guest guest) {
+    public void checkIn(Guest guest, int numberOfNights) {
         if (!isFull()) {
             this.guests.add(guest);
             guest.setRoomNumber(this.roomNumber);
+            guest.setNumberOfNights(numberOfNights);
         }
 
     }
@@ -51,6 +52,7 @@ public class Bedroom {
     public void checkOut(Guest guest) {
         this.guests.remove(guest);
         guest.setRoomNumber(null);
+        guest.setNumberOfNights(0);
     }
 
     public boolean isFull() {

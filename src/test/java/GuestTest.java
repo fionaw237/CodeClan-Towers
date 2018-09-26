@@ -22,4 +22,9 @@ public class GuestTest {
         assertEquals(null, guest.getRoomNumber());
     }
 
+    @Test
+    public void numberOfNightsZeroInitially() {
+        assertEquals(0, guest.getNumberOfNights());
+    }
+
 }

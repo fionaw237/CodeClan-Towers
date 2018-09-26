@@ -41,42 +41,42 @@ public class BedroomTest {
 
     @Test
     public void canCheckInGuest() {
-        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1, 2);
         assertEquals(1, bedroom.guestCount());
     }
 
     @Test
     public void canCheckInGuestShowsRoomNumber() {
-        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1, 2);
         assertEquals("101", guest1.getRoomNumber());
     }
 
     @Test
     public void canCheckInGuestRemovesRoomNumber() {
-        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1, 2);
         bedroom.checkOut(guest1);
         assertEquals(null, guest1.getRoomNumber());
     }
 
     @Test
     public void canCheckOutGuest() {
-        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1, 2);
         bedroom.checkOut(guest1);
         assertEquals(0, bedroom.guestCount());
     }
 
     @Test
     public void isFull() {
-        bedroom.checkIn(guest1);
-        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1, 2);
+        bedroom.checkIn(guest1, 2);
         assertEquals(true, bedroom.isFull());
     }
 
     @Test
     public void cannotAddGuestIfRoomFull() {
-        bedroom.checkIn(guest1);
-        bedroom.checkIn(guest1);
-        bedroom.checkIn(guest1);
+        bedroom.checkIn(guest1, 2);
+        bedroom.checkIn(guest1, 2);
+        bedroom.checkIn(guest1, 2);
         assertEquals(2, bedroom.getCapacity());
     }
 }
